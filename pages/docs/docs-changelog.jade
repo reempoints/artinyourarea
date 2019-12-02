@@ -1,0 +1,76 @@
+extends ../_jade-includes/layout
+
+block vars
+    - var active = 'docs'  
+    - var bodyAttrs = {'data-spy': "scroll", 'data-target': "#components-nav", 'data-offset':"80"}
+    - var path = '../'    
+
+block content
+
+    - var breadcrumbs = []
+    - breadcrumbs.push({name: 'Home', link: '../index.html'})
+    - breadcrumbs.push({name: 'Changelog'})
+    - var heroHeading = 'Changelog'
+    - var current = 'docs/docs-changelog.html'
+    
+    include ../_jade-includes/inc-hero
+
+    section.py-6
+        .container-fluid
+            .row.px-xl-5
+                .col-lg-2
+                    include ../_jade-includes/inc-docs-sidebar
+
+                .col-lg-10.col-xl-8.docs-content
+
+                    +componentDocItem('Version 1.3.0', '<p class="text-muted">September 7, 2019</p>')
+                        .card.bg-gray-100.border-0
+                            .card-body.py-4
+                                pre.card-text. 
+                                    - <strong>new pages:</strong> Travel home page (index-3.html)
+                                    - <strong>improved:</strong> added hover animations to cards using a new .hover-animate utility class
+                                    - <strong>updated plugins:</strong> Bootstrap Select (1.13.10), 
+                                        jQuery (3.4.1), LeafletJS (1.5.1), NoUI Slider (14.0.2), 
+                                        PrismJS (1.17.1), SmoothScroll (16.1.0), Swiper (4.5.0)
+                                    - <strong>updated development workflow:</strong> upgraded to Gulp 4 (4.0.2), 
+                                        switched from CSS Nano Gulp plugin to Gulp Clean CSS (4.2.0). 
+                                        Affected files: gulpfile.js, package.json
+
+                    +componentDocItem('Version 1.2.0', '<p class="text-muted">April 24, 2019</p>')
+                        .card.bg-gray-100.border-0
+                            .card-body.py-4
+                                pre.card-text. 
+                                    - <strong>new pages:</strong> User Bookings (user-grid.html), Booking detail (user-booking-detail.html), Booking process (4 pages: user-booking-1.html - user-booking-4.html, _booking.scss), Host view (user-list.html)
+                                    - <strong>improved:</strong> - added .icon-rounded-sm modifier classes (_icons.scss)
+                                    - <strong>improved:</strong> - better alert theming (_variables.scss)
+                                    - <strong>fixed:</strong> left/right arrows in Magnific popup 
+                                       (affected files: custom/_magnificpopup.scss, new file custom/_functions.scss)
+                                    - <strong>updated:</strong> Font Awesome to v 5.8.1
+
+                    +componentDocItem('Version 1.1.1', '<p class="text-muted">March 7, 2019</p>')
+                        .card.bg-gray-100.border-0
+                            .card-body.py-4
+                                pre.card-text. 
+                                    - <strong>fixed:</strong> Similar places carousel initialisation in detail.html
+                                       (affected files: js/theme.js, new file custom/_functions.scss)
+                                   
+                    +componentDocItem('Version 1.1.0', '<p class="text-muted">March 7, 2019</p>')
+                        .card.bg-gray-100.border-0
+                            .card-body.py-4
+                                pre.card-text. 
+                                    - <strong>new pages:</strong> Sign in (login.html), Sign up (signup.html), Add new listing form (6 pages: user-add-0.html - user-add-5.html)
+                                    - <strong>improved:</strong> added SVG logo for demo purposes
+                                    - <strong>improved:</strong> to avoid CORS issues when viewing using file:// protocol, using the Bootstrapious.com URL for the SVG sprite
+                                    - <strong>fixed:</strong> left/right arrows in Magnific popup 
+                                       (affected files: custom/_magnificpopup.scss, new file custom/_functions.scss)
+                                    - <strong>fixed:</strong> SCSS customization - improved styling possibilities for brand colours, 
+                                      added few missing !default flags, new variable for .nav-link in navbar - $navbar-link-size
+                                      (affected files: custom/_variables.scss, user/_user-variables.scss)
+                    +componentDocItem('Version 1.0.0', '<p class="text-muted">February 14, 2019</p>')
+                        .card.bg-gray-100.border-0
+                            .card-body.py-4
+                                pre.card-text. 
+                                    - Initial release
+
+
+
